@@ -19,7 +19,7 @@ public class EditorActivity extends AppCompatActivity {
     private String noteFilter;
     private String oldText;
 
-
+//test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
