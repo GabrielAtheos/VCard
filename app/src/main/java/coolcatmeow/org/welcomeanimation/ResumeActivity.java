@@ -1,5 +1,6 @@
 package coolcatmeow.org.welcomeanimation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ResumeActivity extends AppCompatActivity {
 /*
@@ -29,9 +31,12 @@ public class ResumeActivity extends AppCompatActivity {
     public  final static String MAJOR = "coolcatmeow.org.welcomeanimation.MAJOR";
     public  final static String COMPANY_NAME = "coolcatmeow.org.welcomeanimation.COMPANY_NAME";
     public  final static String COMPANY_POSITION = "coolcatmeow.org.welcomeanimation.COMPANY_POSITION";
+
     private myClass connectionTask = null;
     private ServerConnection serverConnection = null;
-    private static String TEMPemail = "gabe@gabe.com";
+    //private UserLoginEmail globalEmail
+    private static String loginEmail = LogInActivity.USEREMAIL;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,14 @@ public class ResumeActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        if(loginEmail == null)
+        {
+            String text = "Please log in or create an account";
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
 
         Button goToDisplay = (Button) findViewById(R.id.buttonGoToDisplay);
         goToDisplay.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +132,7 @@ public class ResumeActivity extends AppCompatActivity {
                 String command = "::updateResume%%";
                 String text= "";
                 text += command;
-                text += TEMPemail +";";
+                text += loginEmail +";";
                 text += firstName +";";
                 text += lastName +";";
                 text += eMail +";";

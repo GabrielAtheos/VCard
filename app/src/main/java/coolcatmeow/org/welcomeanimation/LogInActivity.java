@@ -23,29 +23,17 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 public class LogInActivity extends AppCompatActivity {
-    public final static String ID = "coolcatmeow.org.welcomeanimation.ID";
     private myClass connectionTask = null;
     private ServerConnection serverConnection = null;
     public static String USEREMAIL = null;
-    public static String PASSWORD = null;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    private static String PASSWORD = null;
+    private String tempEmail = null;
+    private String tempPassword = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
-//        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-        /*
-            Juan, we need to set USEREMAIL equal to the user's login email address. That way we can
-            use that to sort out who's data to update when updating the database.
-         */
 
         //login email text field
         final EditText emailTextEdit = (EditText) findViewById(R.id.editLoginEmail);
@@ -56,8 +44,7 @@ public class LogInActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.length() != 0)
-                    USEREMAIL = emailTextEdit.getText().toString();
+                    tempEmail = emailTextEdit.getText().toString();
             }
         });
 
@@ -71,8 +58,7 @@ public class LogInActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.length() != 0)
-                    PASSWORD = passwordTextEdit.getText().toString();
+                    tempPassword = passwordTextEdit.getText().toString();
             }
         });
 
@@ -85,13 +71,14 @@ public class LogInActivity extends AppCompatActivity {
                 startActivity(intent);
 
                 String text = "";
-                if(USEREMAIL == null || PASSWORD == null)
+                if(tempEmail == null || tempPassword == null)
                 {
                     text = "Email and password fields must not be left blank";
                 }
                 else
                 {
-                    //let's hope--------------------
+                    USEREMAIL = tempEmail;
+                    PASSWORD = tempPassword;
                     String command = "::adduser%%";
                     String toSend = command;
                     toSend += USEREMAIL+";";
@@ -104,11 +91,8 @@ public class LogInActivity extends AppCompatActivity {
                     {
                         e.printStackTrace();
                     }
-                    //-------------------------------
                     text = "User Created!";
                 }
-                System.out.println("MESSAGE!!! "+text);
-
                 Context context = getApplicationContext();
                 int duration = Toast.LENGTH_LONG;
                 Toast toast = Toast.makeText(context, text, duration);
@@ -125,13 +109,11 @@ public class LogInActivity extends AppCompatActivity {
                 Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                 startActivity(intent);
 
-                /*TODO
-                This is how we can log into the server
-                **************************************************
+                String text = "";
                 String command = "::login%%";
-                String toSend += command;
-                toSend += USEREMAIL;
-                toSend += PASSWORD;
+                String toSend = command;
+                toSend += tempEmail+";";
+                toSend += tempPassword+";";
                 String verification = "";
                 connectionTask = new myClass();
                 try
@@ -142,15 +124,24 @@ public class LogInActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //This part is a rough guess, we need to do a little more work to be sure
-                if(verification.equals("success"))
-                    //login
-                else if(verification.equals("wrongpassword"))
-                    //re-enter password
-                else
-                    //email doesn't exist
-                **************************************************
-                */
+                if(verification.toLowerCase().equals("success")){
+                    USEREMAIL = tempEmail;
+                    text = "Login successful";
+                    System.out.println("SUCCESS!!!!!!!!!!!!!!!!!");
+                }
+                else if(verification.toLowerCase().equals("wrongpassword")){
+                    text = "Incorrect password";
+                    System.out.println("PASSWORD!!!!!!!!!!!!!!!!!!!");
+                }
+                else if(verification.toLowerCase().equals("wrongemail")){
+                    text = "Incorrect email";
+                    System.out.println("EMAIL!!!!!!!!!!!!!!!!!!!!!");
+                }
 
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
             }
         });
     }
