@@ -29,11 +29,11 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/LoginEmail"
+        android:id="@+id/editLoginEmail"
         android:layout_alignBottom="@+id/textView4"
         android:layout_toRightOf="@+id/textView4"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignRight="@+id/editPasswordText"
+        android:layout_alignEnd="@+id/editPasswordText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,14 +46,14 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="40dp"
         android:paddingRight="10dp"
-        android:layout_toLeftOf="@+id/editText"
-        android:layout_toStartOf="@+id/editText"
+        android:layout_toLeftOf="@+id/editPasswordText"
+        android:layout_toStartOf="@+id/editPasswordText"
         android:textAlignment="viewEnd" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/editPasswordText"
         android:layout_alignTop="@+id/passwordText"
         android:layout_toRightOf="@+id/textView4"
         android:layout_alignParentRight="true"
@@ -84,7 +84,7 @@
         android:text="Sign In"
         android:id="@+id/buttonSignIn"
         android:layout_alignBottom="@+id/buttonNewAccount"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignRight="@+id/editPasswordText"
+        android:layout_alignEnd="@+id/editPasswordText" />
 
 </RelativeLayout>
