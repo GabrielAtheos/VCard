@@ -113,24 +113,6 @@ public class LogInActivity extends AppCompatActivity {
                 int duration = Toast.LENGTH_LONG;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
-               /*
-               TODO
-                This is how we can create a new user on the server
-                **************************************************
-                String command = "::adduser%%";
-                String toSend += command;
-                toSend += USEREMAIL;
-                toSend += PASSWORD;
-                connectionTask = new myClass();
-                try
-                {
-                    connectionTask.execute(toSend).get();
-                }catch(Exception e)
-                {
-                    e.printStackTrace();
-                }
-                **************************************************
-                */
             }
         });
 
