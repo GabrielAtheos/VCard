@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">WelcomeAnimation</string>
+    <string name="option1">Resume</string>
+    <string name="option2">Edit</string>
+    <string name="option3">Display</string>
+    <string name="option4">QR Code</string>
+    <string name="title_activity_resume">ResumeActivity</string>
+    <string name="title_activity_edit">EditActivity</string>
+    <string name="title_activity_display">DisplayActivity</string>
+    <string name="title_activity_qr">QrActivity</string>
+    <string name="welcome">WELCOME TO VCARD</string>
+    <string name="FirstName">First Name</string>
+    <string name="LastName">Last Name</string>
+    <string name="TopOfResume">Please fill out application</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone Number</string>
+    <string name="next">Continue</string>
+    <string name="title_activity_resume_activity_two">ResumeActivityTwo</string>
+    <string name="address">Address</string>
+    <string name="SchoolInfo">School Most Recently Attended</string>
+    <string name="SchoolName">Institution Name</string>
+    <string name="Major">Major</string>
+    <string name="WorkInfo">Work Experience</string>
+    <string name="CompanyName">Company Name</string>
+    <string name="WorkTittle">Work Position</string>
+    <string name="ReturnHome">Return to Main</string>
+    <string name="viewProgress">View Progress</string>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="create_sample_data">Create sample data</string>
+    <string name="delete_all_notes">Delete all notes</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="all_deleted">All notes deleted</string>
+    <string name="title_activity_editor">EditorActivity</string>
+    <string name="new_note">New note</string>
+    <string name="note_updated">Note updated</string>
+    <string name="action_delete">Delete</string>
+    <string name="note_deleted">Note deleted</string>
+    <string name="note">Note</string>
+    <string name="enter_note_here">Enter note here</string>
+
+</resources>

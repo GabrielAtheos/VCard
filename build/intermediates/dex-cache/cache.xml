@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/gabriel/Documents/github/VCard/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/com.android.support-design-23.2.1_c0b45959b42b67598ff192dd889e3f31d2cf2c10.jar" />
+    </item>
+    <item
+        jar="/home/gabriel/Documents/github/VCard/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.2.1_821a6a818bdb67bdc2b204be2194fd22e13402b3.jar" />
+    </item>
+    <item
+        jar="/home/gabriel/Documents/github/VCard/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.2.1_83d3465f46fa4cfb4f8ad7748d2d0e2ca12908ae.jar" />
+    </item>
+    <item
+        jar="/home/gabriel/Documents/github/VCard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.2.1_ed36811d8f1f6f2f2b601d584b8da1ace050e984.jar" />
+    </item>
+    <item
+        jar="/home/gabriel/Documents/github/VCard/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.2.1_ac67b1c51b708b55e7d1057e6255dabf6d569c55.jar" />
+    </item>
+    <item
+        jar="/home/gabriel/Documents/github/VCard/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.2.1_393958c2a4b50c66098df8ba16f818019f8fe140.jar" />
+    </item>
+    <item
+        jar="/home/gabriel/Documents/github/VCard/app/build/intermediates/exploded-aar/com.github.markushi/circlebutton/1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ebe3b1f14fa79ba3cd1588acda4e6517ee9fe611">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/com.github.markushi-circlebutton-1.1_dc9e1614119f2cdd2bef53989936a8471fc00e1f.jar" />
+    </item>
+    <item
+        jar="/home/gabriel/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/support-annotations-23.2.1_91781ae1c6f2921dd72c6df066b57c9aed2914a8.jar" />
+    </item>
+    <item
+        jar="/home/gabriel/Documents/github/VCard/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/home/gabriel/Documents/github/VCard/app/build/intermediates/pre-dexed/debug/internal_impl-23.2.1_2383d205da3d2ae72f47cd5a02b0d527f2713167.jar" />
+    </item>
+
+</items>

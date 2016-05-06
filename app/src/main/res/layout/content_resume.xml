@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="coolcatmeow.org.welcomeanimation.ResumeActivity"
+    tools:showIn="@layout/activity_resume"
+    android:nestedScrollingEnabled="true"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/TopOfResume"
+        android:id="@+id/MessageTopResume"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:padding="15dp"
+        android:textColor="#982525" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:text="@string/FirstName"
+        android:id="@+id/editTextFistName"
+        android:layout_below="@+id/MessageTopResume"
+        android:layout_centerHorizontal="true"
+        android:padding="15dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/LastName"
+        android:ems="10"
+        android:id="@+id/editTextLastName"
+        android:layout_marginTop="64dp"
+        android:paddingTop="15dp"
+        android:padding="15dp"
+        android:layout_below="@+id/editTextFistName"
+        android:layout_alignLeft="@+id/editTextFistName"
+        android:layout_alignStart="@+id/editTextFistName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:text="@string/email"
+        android:ems="10"
+        android:id="@+id/editTextEmail"
+        android:paddingTop="15dp"
+        android:padding="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/editTextLastName"
+        android:layout_alignLeft="@+id/editTextLastName"
+        android:layout_alignStart="@+id/editTextLastName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:text="@string/phone"
+        android:ems="10"
+        android:id="@+id/editTextPhone"
+        android:layout_marginTop="52dp"
+        android:layout_below="@+id/editTextEmail"
+        android:layout_alignLeft="@+id/editTextEmail"
+        android:layout_alignStart="@+id/editTextEmail" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/SchoolInfo"
+        android:id="@+id/textView2"
+        android:layout_alignLeft="@+id/editTextPhone"
+        android:layout_alignStart="@+id/editTextPhone"
+        android:textColor="#982525"
+        android:layout_below="@+id/editTextPhone"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:phoneNumber="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/SchoolName"
+        android:ems="10"
+        android:id="@+id/editTextSchoolName"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/Major"
+        android:ems="10"
+        android:id="@+id/editTextMajor"
+        android:layout_below="@+id/editTextSchoolName"
+        android:layout_alignLeft="@+id/editTextSchoolName"
+        android:layout_alignStart="@+id/editTextSchoolName" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/WorkInfo"
+        android:id="@+id/textViewWorkInfo"
+        android:layout_below="@+id/editTextMajor"
+        android:layout_alignLeft="@+id/editTextMajor"
+        android:layout_alignStart="@+id/editTextMajor"
+        android:layout_marginTop="40dp"
+        android:textColor="#982525" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="@string/CompanyName"
+        android:id="@+id/editTextWorkName"
+        android:layout_below="@+id/textViewWorkInfo"
+        android:layout_alignLeft="@+id/textViewWorkInfo"
+        android:layout_alignStart="@+id/textViewWorkInfo"
+        android:layout_marginTop="49dp"
+        android:layout_alignRight="@+id/editTextMajor"
+        android:layout_alignEnd="@+id/editTextMajor" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextWorkTittle"
+        android:text="@string/WorkTittle"
+        android:layout_below="@+id/editTextWorkName"
+        android:layout_alignLeft="@+id/editTextWorkName"
+        android:layout_alignStart="@+id/editTextWorkName"
+        android:layout_marginTop="35dp"
+        android:layout_alignRight="@+id/editTextWorkName"
+        android:layout_alignEnd="@+id/editTextWorkName" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:id="@+id/buttonGoToDisplay"
+        android:layout_below="@+id/editTextWorkTittle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
+</ScrollView>
