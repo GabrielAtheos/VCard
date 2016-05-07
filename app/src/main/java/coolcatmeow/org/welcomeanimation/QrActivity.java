@@ -60,12 +60,14 @@ public class QrActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                if() {
-                    Context context = getApplicationContext();
-                    int duration = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+                if(returned.toLowerCase().equals("success")) {
+                    //TODO finish this shit
                 }
+
+                Context context = getApplicationContext();
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
 
                 Intent intent = new Intent(QrActivity.this, DisplayActivity.class);
                 intent.putExtra(GETEMAIL, returned);
