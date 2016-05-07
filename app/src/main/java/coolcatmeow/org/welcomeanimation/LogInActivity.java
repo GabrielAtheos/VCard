@@ -127,15 +127,12 @@ public class LogInActivity extends AppCompatActivity {
                 if(verification.toLowerCase().equals("success")){
                     USEREMAIL = tempEmail;
                     text = "Login successful";
-                    System.out.println("SUCCESS!!!!!!!!!!!!!!!!!");
                 }
                 else if(verification.toLowerCase().equals("wrongpassword")){
                     text = "Incorrect password";
-                    System.out.println("PASSWORD!!!!!!!!!!!!!!!!!!!");
                 }
                 else if(verification.toLowerCase().equals("wrongemail")){
                     text = "Incorrect email";
-                    System.out.println("EMAIL!!!!!!!!!!!!!!!!!!!!!");
                 }
 
                 Context context = getApplicationContext();
