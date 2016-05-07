@@ -61,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
 
+        //new Button to Authorize code
+        Button goToAA = (Button) findViewById(R.id.buttonSix);
+       goToAA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AuthorityActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 }

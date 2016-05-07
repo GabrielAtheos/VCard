@@ -60,8 +60,7 @@
         android:id="@+id/buttonFOUR"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/buttonTHREE"
-        android:layout_alignStart="@+id/buttonTHREE"
-        android:layout_marginBottom="42dp" />
+        android:layout_alignStart="@+id/buttonTHREE" />
 
     //Button for login
     <Button
@@ -72,6 +71,15 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Authorize"
+        android:id="@+id/buttonSix"
+        android:layout_above="@+id/buttonFOUR"
+        android:layout_alignLeft="@+id/buttonFOUR"
+        android:layout_alignStart="@+id/buttonFOUR" />
 
 
 </RelativeLayout>

@@ -38,5 +38,6 @@
     <string name="note">Note</string>
     <string name="enter_note_here">Enter note here</string>
     <string name="title_activity_get_info">GetInfoActivity</string>
+    <string name="title_activity_authority">AuthorityActivity</string>
 
 </resources>

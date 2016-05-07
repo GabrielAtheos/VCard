@@ -2,25 +2,16 @@ package coolcatmeow.org.welcomeanimation;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 public class LogInActivity extends AppCompatActivity {
     private myClass connectionTask = null;
@@ -106,8 +97,9 @@ public class LogInActivity extends AppCompatActivity {
         goToYourActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(LogInActivity.this, MainActivity.class);
+                Intent intent2 = new Intent(LogInActivity.this, LogInActivity.class);
+                //startActivity(intent1);
 
                 String text = "";
                 String command = "::login%%";
@@ -127,12 +119,18 @@ public class LogInActivity extends AppCompatActivity {
                 if(verification.toLowerCase().equals("success")){
                     USEREMAIL = tempEmail;
                     text = "Login successful";
+                    System.out.println(text);
+                    startActivity(intent1);
                 }
                 else if(verification.toLowerCase().equals("wrongpassword")){
                     text = "Incorrect password";
+                    System.out.println(text);
+                    startActivity(intent2);
                 }
                 else if(verification.toLowerCase().equals("wrongemail")){
                     text = "Incorrect email";
+                    System.out.println(text);
+                    startActivity(intent2);
                 }
 
                 Context context = getApplicationContext();
