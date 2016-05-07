@@ -1,5 +1,6 @@
 package coolcatmeow.org.welcomeanimation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,12 +12,14 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class QrActivity extends AppCompatActivity {
     public  final static String GETEMAIL = "coolcatmeow.org.welcomeanimation.GETEMAIL";
-    private String tempInfo = null;
+    private String requestedEmail = null;
     private myClass connectionTask = null;
     private ServerConnection serverConnection = null;
+    private String USEREMAIL = LogInActivity.USEREMAIL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class QrActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
             @Override
             public void afterTextChanged(Editable s) {
-                tempInfo = getEmail.getText().toString();
+                requestedEmail = getEmail.getText().toString();
             }
         });
 
@@ -41,12 +44,31 @@ public class QrActivity extends AppCompatActivity {
         goToDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String text = "";
+                String returned = "";
 
-                EditText SearchEmail = (EditText) findViewById(R.id.editTextWriteEmail2);
-                final String lookEmail = SearchEmail.getText().toString();
+                String command = "::get_other_resume%%";
+                String toSend = command;
+                toSend += USEREMAIL+";";
+                toSend += requestedEmail+";";
+                connectionTask = new myClass();
+                try
+                {
+                    returned = connectionTask.execute(toSend).get();
+                }catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
+
+                if() {
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
 
                 Intent intent = new Intent(QrActivity.this, DisplayActivity.class);
-                intent.putExtra(GETEMAIL, lookEmail);
+                intent.putExtra(GETEMAIL, returned);
 
                 startActivity(intent);
             }
