@@ -54,6 +54,24 @@ public class ResumeActivity extends AppCompatActivity {
             toast.show();
         }
 
+        String text2 = "::getInfo%%" + loginEmail + ";";
+        String userInfo = "";
+        connectionTask = new myClass();
+        try
+        {
+            userInfo = connectionTask.execute(text2).get();
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        String[] infoArr = userInfo.split(";");
+        if(!infoArr[0].toLowerCase().equals("no"))
+        {
+            EditText editText = (EditText)findViewById(R.id.editTextFistName);
+            editText.setText(infoArr[0]);
+        }
+
+
         Button goToDisplay = (Button) findViewById(R.id.buttonGoToDisplay);
         goToDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,17 +84,19 @@ public class ResumeActivity extends AppCompatActivity {
 
                     We can do this by accessing the user's loginEmail and run the following commands:
                     *********************************************************************************
-                    String text = "::getInfo%%" + loginEmail + ";";
+                    */
+                    String text2 = "::getInfo%%" + loginEmail + ";";
                     String userInfo = "";
                     connectionTask = new myClass();
                     try
                     {
-                        userInfo = connectionTask.execute(text).get();
+                        userInfo = connectionTask.execute(text2).get();
                     }catch(Exception e)
                     {
                         e.printStackTrace();
                     }
                     String[] infoArr = userInfo.split(";");
+                    /*
                     ************************************************************************
 
                     The info will be in the following format when returned so you may properly populate the
@@ -92,6 +112,15 @@ public class ResumeActivity extends AppCompatActivity {
                  */
 
                 //COPY THE TEXT IN THE FIRST NAME
+                /*
+                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+infoArr[0]);
+
+                if(!infoArr[0].toLowerCase().equals("no"))
+                {
+                    EditText editText = (EditText)findViewById(R.id.editTextFistName);
+                    editText.setText("Google is your friend.");
+                }
+                */
                 EditText fn = (EditText) findViewById(R.id.editTextFistName);
                 final String firstName = fn.getText().toString();
 

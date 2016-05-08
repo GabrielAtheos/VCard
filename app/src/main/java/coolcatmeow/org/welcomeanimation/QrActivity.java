@@ -60,8 +60,21 @@ public class QrActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                if(returned.toLowerCase().equals("success")) {
+                if(returned.toLowerCase().equals("notauthorized")) {
                     //TODO finish this shit
+
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                    Intent intent2 = new Intent(QrActivity.this, QrActivity.class);
+                    startActivity(intent2);
+                }else {
+
+
+                    Intent intent1 = new Intent(QrActivity.this, MainActivity.class);
+                    startActivity(intent1);
                 }
 
                 Context context = getApplicationContext();
