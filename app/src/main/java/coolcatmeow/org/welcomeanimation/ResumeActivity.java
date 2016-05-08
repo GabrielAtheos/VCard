@@ -13,16 +13,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class ResumeActivity extends AppCompatActivity {
-/*
-    public   static String FIRST_NAME = "coolcatmeow.org.welcomeanimation.FIRST_NAME";
-    public   static String LAST_NAME = "coolcatmeow.org.welcomeanimation.LAST_NAME";
-    public   static String EMAIL = "coolcatmeow.org.welcomeanimation.EMAIL";
-    public   static String PHONE = "coolcatmeow.org.welcomeanimation.PHONE";
-    public   static String SCHOOL_NAME = "coolcatmeow.org.welcomeanimation.SCHOOL_NAME";
-    public   static String MAJOR = "coolcatmeow.org.welcomeanimation.MAJOR";
-    public   static String COMPANY_NAME = "coolcatmeow.org.welcomeanimation.COMPANY_NAME";
-    public   static String COMPANY_POSITION = "coolcatmeow.org.welcomeanimation.COMPANY_POSITION";
-*/
     public  final static String FIRST_NAME = "coolcatmeow.org.welcomeanimation.FIRST_NAME";
     public  final static String LAST_NAME = "coolcatmeow.org.welcomeanimation.LAST_NAME";
     public  final static String EMAIL = "coolcatmeow.org.welcomeanimation.EMAIL";
@@ -34,7 +24,6 @@ public class ResumeActivity extends AppCompatActivity {
 
     private myClass connectionTask = null;
     private ServerConnection serverConnection = null;
-    //private UserLoginEmail globalEmail
     private static String loginEmail = LogInActivity.USEREMAIL;
 
 
@@ -110,51 +99,6 @@ public class ResumeActivity extends AppCompatActivity {
         goToDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /* TODO
-                    Juan, we should set something up so that, once the user logs in, it pulls data
-                    about the resume down from the server and populates the fields. That way, any
-                    time the user wants to update something, they don't have to fill in the
-                    entire resume section again.
-
-                    We can do this by accessing the user's loginEmail and run the following commands:
-                    *********************************************************************************
-                    */
-                    String text2 = "::getInfo%%" + loginEmail + ";";
-                    String userInfo = "";
-                    connectionTask = new myClass();
-                    try
-                    {
-                        userInfo = connectionTask.execute(text2).get();
-                    }catch(Exception e)
-                    {
-                        e.printStackTrace();
-                    }
-                    String[] infoArr = userInfo.split(";");
-                    /*
-                    ************************************************************************
-
-                    The info will be in the following format when returned so you may properly populate the
-                    the resume fields.
-                    infoArr[0] = First_Name
-                    infoArr[1] = Last_Name
-                    infoArr[2] = Email
-                    infoArr[3] = Phone
-                    infoArr[4] = School_Name
-                    infoArr[5] = Major
-                    infoArr[6] = Company_Name
-                    infoArr[7] = Company_Position
-                 */
-
-                //COPY THE TEXT IN THE FIRST NAME
-                /*
-                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+infoArr[0]);
-
-                if(!infoArr[0].toLowerCase().equals("no"))
-                {
-                    EditText editText = (EditText)findViewById(R.id.editTextFistName);
-                    editText.setText("Google is your friend.");
-                }
-                */
                 EditText fn = (EditText) findViewById(R.id.editTextFistName);
                 final String firstName = fn.getText().toString();
 
