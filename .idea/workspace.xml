@@ -19,15 +19,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f61dc43-943f-4a57-a929-e2a7418339c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coolcatmeow/org/welcomeanimation/QrActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/coolcatmeow/org/welcomeanimation/QrActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coolcatmeow/org/welcomeanimation/ResumeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/coolcatmeow/org/welcomeanimation/ResumeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_resume.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_resume.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VCard.iws" />
@@ -2078,7 +2069,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462665246705</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Resume Activity Template">
+      <created>1462673628135</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1462673628135</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2166,7 +2163,8 @@
     <MESSAGE value="QrActivity: Added a text edit and a button that will navigate to DisplayActivity.&#10;  Whatever you type in the text field will display in the DisplayActivity.&#10;&#10;DisplayActivity: Contains a series of text edit in the order: firstName, LastName, email, phone, SchoolName, Major, Work, and Position&#10;&#10;" />
     <MESSAGE value="Added to the QRActivity" />
     <MESSAGE value="Fixed the if statement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the if statement" />
+    <MESSAGE value="Resume Activity Template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resume Activity Template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
