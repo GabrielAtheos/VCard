@@ -56,7 +56,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/option4"
+        android:text="Get Linked"
         android:id="@+id/buttonFOUR"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/buttonTHREE"

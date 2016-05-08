@@ -70,7 +70,41 @@ public class ResumeActivity extends AppCompatActivity {
             EditText editText = (EditText)findViewById(R.id.editTextFistName);
             editText.setText(infoArr[0]);
         }
-
+        if(!infoArr[1].toLowerCase().equals("no"))
+        {
+            EditText editText = (EditText)findViewById(R.id.editTextLastName);
+            editText.setText(infoArr[1]);
+        }
+        if(!infoArr[2].toLowerCase().equals("no"))
+        {
+            EditText editText = (EditText)findViewById(R.id.editTextEmail);
+            editText.setText(infoArr[2]);
+        }
+        if(!infoArr[3].toLowerCase().equals("no"))
+        {
+            EditText editText = (EditText)findViewById(R.id.editTextPhone);
+            editText.setText(infoArr[3]);
+        }
+        if(!infoArr[4].toLowerCase().equals("no"))
+        {
+            EditText editText = (EditText)findViewById(R.id.editTextSchoolName);
+            editText.setText(infoArr[4]);
+        }
+        if(!infoArr[5].toLowerCase().equals("no"))
+        {
+            EditText editText = (EditText)findViewById(R.id.editTextMajor);
+            editText.setText(infoArr[5]);
+        }
+        if(!infoArr[6].toLowerCase().equals("no"))
+        {
+            EditText editText = (EditText)findViewById(R.id.editTextWorkName);
+            editText.setText(infoArr[6]);
+        }
+        if(!infoArr[7].toLowerCase().equals("no"))
+        {
+            EditText editText = (EditText)findViewById(R.id.editTextWorkTittle);
+            editText.setText(infoArr[7]);
+        }
 
         Button goToDisplay = (Button) findViewById(R.id.buttonGoToDisplay);
         goToDisplay.setOnClickListener(new View.OnClickListener() {
