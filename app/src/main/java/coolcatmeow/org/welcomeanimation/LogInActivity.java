@@ -16,7 +16,8 @@ import android.widget.Toast;
 public class LogInActivity extends AppCompatActivity {
     private myClass connectionTask = null;
     private ServerConnection serverConnection = null;
-    public static String USEREMAIL = null;
+    public static String USEREMAIL = null ;
+    public static String user_email = null;
     private static String PASSWORD = null;
     private String tempEmail = null;
     private String tempPassword = null;
@@ -28,117 +29,131 @@ public class LogInActivity extends AppCompatActivity {
 
         //login email text field
         final EditText emailTextEdit = (EditText) findViewById(R.id.editLoginEmail);
-        emailTextEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                    tempEmail = emailTextEdit.getText().toString();
-            }
-        });
+        if(emailTextEdit != null)
+            emailTextEdit.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {}
+                @Override
+                public void afterTextChanged(Editable s) {
+                    try {
+                        tempEmail = emailTextEdit.getText().toString();
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
 
         //password text field
         final EditText passwordTextEdit = (EditText) findViewById(R.id.editPasswordText);
-        passwordTextEdit.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                    tempPassword = passwordTextEdit.getText().toString();
-            }
-        });
+        if(passwordTextEdit != null)
+            passwordTextEdit.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {}
+                @Override
+                public void afterTextChanged(Editable s) {
+                        tempPassword = passwordTextEdit.getText().toString();
+                }
+            });
 
         //Button to Create new Account
         Button goToMainActivity = (Button) findViewById(R.id.buttonNewAccount);
-        goToMainActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-                startActivity(intent);
+        if(goToMainActivity != null)
+            goToMainActivity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+                    startActivity(intent);
 
-                String text = "";
-                if(tempEmail == null || tempPassword == null)
-                {
-                    text = "Email and password fields must not be left blank";
+                    String text;
+                    if(tempEmail == null || tempPassword == null)
+                    {
+                        text = "Email and password fields must not be left blank";
+                    }
+                    else
+                    {
+                        USEREMAIL = tempEmail;
+                        PASSWORD = tempPassword;
+                        String toSend = "::adduser%%";
+                        toSend += USEREMAIL+";";
+                        toSend += PASSWORD+";";
+                        connectionTask = new myClass();
+                        intent.putExtra(user_email,tempEmail);
+                        try
+                        {
+                            connectionTask.execute(toSend).get();
+                        }catch(Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                        text = "User Created!";
+                    }
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
                 }
-                else
-                {
+            });
+
+        //Button to sign in to account
+        Button goToYourActivity = (Button) findViewById(R.id.buttonSignIn);
+        if(goToYourActivity != null)
+            goToYourActivity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent1 = new Intent(LogInActivity.this, MainActivity.class);
+                    Intent intent2 = new Intent(LogInActivity.this, LogInActivity.class);
+                    //startActivity(intent1);
+
+                    USEREMAIL = null;
+
                     USEREMAIL = tempEmail;
-                    PASSWORD = tempPassword;
-                    String command = "::adduser%%";
-                    String toSend = command;
-                    toSend += USEREMAIL+";";
-                    toSend += PASSWORD+";";
+
+                    String text = "";
+                    String toSend = "::login%%";
+                    toSend += tempEmail+";";
+                    toSend += tempPassword+";";
+                    String verification = "";
                     connectionTask = new myClass();
                     try
                     {
-                        connectionTask.execute(toSend).get();
+                        verification = connectionTask.execute(toSend).get();
                     }catch(Exception e)
                     {
                         e.printStackTrace();
                     }
-                    text = "User Created!";
-                }
-                Context context = getApplicationContext();
-                int duration = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-            }
-        });
 
-        //Button to sign in to account
-        Button goToYourActivity = (Button) findViewById(R.id.buttonSignIn);
-        assert goToMainActivity != null;
-        goToYourActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(LogInActivity.this, MainActivity.class);
-                Intent intent2 = new Intent(LogInActivity.this, LogInActivity.class);
-                //startActivity(intent1);
+                    if(verification != null) {
+                        if (verification.toLowerCase().equals("success")) {
+                            intent1.putExtra(user_email, tempEmail);
+                            text = "Login successful";
+                            startActivity(intent1);
 
-                String text = "";
-                String command = "::login%%";
-                String toSend = command;
-                toSend += tempEmail+";";
-                toSend += tempPassword+";";
-                String verification = "";
-                connectionTask = new myClass();
-                try
-                {
-                    verification = connectionTask.execute(toSend).get();
-                }catch(Exception e)
-                {
-                    e.printStackTrace();
-                }
-                //This part is a rough guess, we need to do a little more work to be sure
-                if(verification.toLowerCase().equals("success")){
-                    USEREMAIL = tempEmail;
-                    text = "Login successful";
-                    System.out.println(text);
+                        } else if (verification.toLowerCase().equals("wrongpassword")) {
+                            text = "Incorrect password";
+                            System.out.println(text);
+                            //finish();
+                            startActivity(intent2);
+                        } else if (verification.toLowerCase().equals("wrongemail")) {
+                            text = "Incorrect email";
+                            System.out.println(text);
+                            //finish();
+                            startActivity(intent2);
+                        }
+                    }else {
+                        text = "unknown error";
+                    }
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
                     startActivity(intent1);
                 }
-                else if(verification.toLowerCase().equals("wrongpassword")){
-                    text = "Incorrect password";
-                    System.out.println(text);
-                    startActivity(intent2);
-                }
-                else if(verification.toLowerCase().equals("wrongemail")){
-                    text = "Incorrect email";
-                    System.out.println(text);
-                    startActivity(intent2);
-                }
-
-                Context context = getApplicationContext();
-                int duration = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-            }
-        });
+            });
     }
 
     /**
@@ -159,7 +174,8 @@ public class LogInActivity extends AppCompatActivity {
                 info = serverConnection.gMessage;
                 information = info;
 
-                Looper.prepare();
+                if(Looper.myLooper() == null)
+                    Looper.prepare();
             } catch (Exception e) {
                 e.printStackTrace();
             }

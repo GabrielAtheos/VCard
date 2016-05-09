@@ -22,26 +22,33 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="72dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
         android:paddingLeft="15dp"
         android:paddingRight="10dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/editTextAuthorizeEmail"
         android:layout_alignBottom="@+id/textView5"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
         android:layout_toEndOf="@+id/textView5"
-        android:layout_toRightOf="@+id/textView5" />
+        android:layout_toRightOf="@+id/textView5"
+        android:hint="@string/add_authorized_hint"
+        android:inputType="textEmailAddress" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Authorize"
-        android:id="@+id/button"
-        android:layout_below="@+id/editText2"
+        android:text="@string/authorize"
+        android:id="@+id/buttonAuthorize"
+        android:layout_below="@+id/editTextAuthorizeEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp" />
 </RelativeLayout>

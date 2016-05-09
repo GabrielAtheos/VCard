@@ -19,7 +19,7 @@ public class QrActivity extends AppCompatActivity {
     private String requestedEmail = null;
     private myClass connectionTask = null;
     private ServerConnection serverConnection = null;
-    private String USEREMAIL = LogInActivity.USEREMAIL;
+    private String USEREMAIL = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,66 +28,70 @@ public class QrActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        USEREMAIL = getIntent().getStringExtra(MainActivity.USEREMAIL);
+
         final EditText getEmail = (EditText) findViewById(R.id.editTextWriteEmail2);
-        getEmail.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-            @Override
-            public void afterTextChanged(Editable s) {
-                requestedEmail = getEmail.getText().toString();
-            }
-        });
+        if(getEmail != null)
+            getEmail.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {}
+                @Override
+                public void afterTextChanged(Editable s) {
+                    requestedEmail = getEmail.getText().toString();
+
+                }
+            });
 
         Button goToDisplay = (Button) findViewById(R.id.buttonGetInfo);
-        goToDisplay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String text = "";
-                String returned = "";
+        if(goToDisplay != null)
+            goToDisplay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String text = "";
+                    String returned = "";
 
-                String command = "::get_other_resume%%";
-                String toSend = command;
-                toSend += USEREMAIL+";";
-                toSend += requestedEmail+";";
-                connectionTask = new myClass();
-                try
-                {
-                    returned = connectionTask.execute(toSend).get();
-                }catch(Exception e)
-                {
-                    e.printStackTrace();
-                }
+                    String toSend = "::getlinked%%";
+                    toSend += USEREMAIL+";";
+                    toSend += requestedEmail+";";
+                    connectionTask = new myClass();
+                    try
+                    {
+                        returned = connectionTask.execute(toSend).get();
+                    }catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
 
-                if(returned.toLowerCase().equals("notauthorized")) {
-                    //TODO finish this shit
+                    if(returned.toLowerCase().equals("notauthorized")) {
+                        //TODO finish this shit
+
+                        Context context = getApplicationContext();
+                        int duration = Toast.LENGTH_LONG;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+
+                        Intent intent2 = new Intent(QrActivity.this, QrActivity.class);
+                        startActivity(intent2);
+                    }else {
+
+
+                        Intent intent1 = new Intent(QrActivity.this, MainActivity.class);
+                        startActivity(intent1);
+                    }
 
                     Context context = getApplicationContext();
                     int duration = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
 
-                    Intent intent2 = new Intent(QrActivity.this, QrActivity.class);
-                    startActivity(intent2);
-                }else {
+                    Intent intent = new Intent(QrActivity.this, DisplayActivity.class);
+                    intent.putExtra(GETEMAIL, returned);
 
-
-                    Intent intent1 = new Intent(QrActivity.this, MainActivity.class);
-                    startActivity(intent1);
+                    startActivity(intent);
                 }
-
-                Context context = getApplicationContext();
-                int duration = Toast.LENGTH_LONG;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-
-                Intent intent = new Intent(QrActivity.this, DisplayActivity.class);
-                intent.putExtra(GETEMAIL, returned);
-
-                startActivity(intent);
-            }
-        });
+            });
 
 
     }

@@ -18,7 +18,7 @@ public class DisplayActivity extends AppCompatActivity {
         //So far whatever you type in the search field will be copied onto the Display Activity
         String receiveEmail = getIntent().getStringExtra(QrActivity.GETEMAIL);
         TextView textEmail = (TextView) findViewById(R.id.email2);
-        textEmail.setText(receiveEmail);
+        if(textEmail != null)
+            textEmail.setText(receiveEmail);
     }
-
 }
