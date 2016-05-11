@@ -2,6 +2,7 @@ package coolcatmeow.org.welcomeanimation;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -67,7 +68,6 @@ public class LogInActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-                    startActivity(intent);
 
                     String text;
                     if(tempEmail == null || tempPassword == null)
@@ -96,6 +96,8 @@ public class LogInActivity extends AppCompatActivity {
                     int duration = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
+
+                    startActivity(intent);
                 }
             });
 
@@ -107,7 +109,6 @@ public class LogInActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent1 = new Intent(LogInActivity.this, MainActivity.class);
                     Intent intent2 = new Intent(LogInActivity.this, LogInActivity.class);
-                    //startActivity(intent1);
 
                     USEREMAIL = null;
 
@@ -147,6 +148,7 @@ public class LogInActivity extends AppCompatActivity {
                     }else {
                         text = "unknown error";
                     }
+
                     Context context = getApplicationContext();
                     int duration = Toast.LENGTH_LONG;
                     Toast toast = Toast.makeText(context, text, duration);

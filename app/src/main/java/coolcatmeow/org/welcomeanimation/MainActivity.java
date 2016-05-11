@@ -16,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        USEREMAIL = getIntent().getStringExtra(LogInActivity.user_email);
-	    System.out.println("MAIN MAIN MAIN MAIN "+ USEREMAIL);
+		if(getIntent().getStringExtra(LogInActivity.user_email) != null) {
+			USEREMAIL = getIntent().getStringExtra(LogInActivity.user_email);
+			System.out.println("MAIN MAIN MAIN MAIN " + USEREMAIL);
+		}
 
         //Button for the login
         Button goToLogInActivity = (Button) findViewById(R.id.buttonFIVE);
