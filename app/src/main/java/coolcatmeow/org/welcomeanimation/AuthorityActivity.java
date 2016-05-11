@@ -20,8 +20,7 @@ public class AuthorityActivity extends AppCompatActivity {
     private String userEmail = null;
     private myClass connectionTask = null;
     private ServerConnection serverConnection = null;
-
-    //TODO: add check to see if the user is logged in
+    private String text = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +30,19 @@ public class AuthorityActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         userEmail = getIntent().getStringExtra(MainActivity.USEREMAIL);
+
+        if(userEmail == null) {
+            Intent intentMain = new Intent(AuthorityActivity.this, MainActivity.class);
+            startActivity(intentMain);
+
+            text = "Please log in";
+
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+
         System.out.println("AUTHORIZED AUTHORIZED AUTHORIZED AUTHORIZED " + userEmail);
 
         final EditText getEmail = (EditText) findViewById(R.id.editTextAuthorizeEmail);
@@ -54,7 +66,6 @@ public class AuthorityActivity extends AppCompatActivity {
                     Intent intent1 = new Intent(AuthorityActivity.this, AuthorityActivity.class);
                     Intent intent2 = new Intent(AuthorityActivity.this, MainActivity.class);
 
-                    String text;
                     String response = "";
 
                     String toSend = "::addauthorizeduser%%";

@@ -2,6 +2,8 @@
 package coolcatmeow.org.welcomeanimation;
 
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +11,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static String USEREMAIL;
+    public static String USEREMAIL = null;
+	private myClass connectionTask = null;
+	private ServerConnection serverConnection = null;
+	public static String RESUMEINFO = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +23,19 @@ public class MainActivity extends AppCompatActivity {
 
 		if(getIntent().getStringExtra(LogInActivity.user_email) != null) {
 			USEREMAIL = getIntent().getStringExtra(LogInActivity.user_email);
-			System.out.println("MAIN MAIN MAIN MAIN " + USEREMAIL);
 		}
+	    if(USEREMAIL != null) {
+		    String text2 = "::getInfo%%" + USEREMAIL + ";";
+		    String userInfo = "";
+		    connectionTask = new myClass();
+		    try {
+			    userInfo = connectionTask.execute(text2).get();
+		    } catch (Exception e) {
+			    e.printStackTrace();
+		    }
+		    if(userInfo.equals(""))
+		        RESUMEINFO = userInfo;
+	    }
 
         //Button for the login
         Button goToLogInActivity = (Button) findViewById(R.id.buttonFIVE);
@@ -62,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 	            public void onClick(View v) {
 	                Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
 	                intent.putExtra(USEREMAIL,USEREMAIL);
+		            intent.putExtra(RESUMEINFO,RESUMEINFO);
 	                startActivity(intent);
 	            }
 	        });
@@ -90,4 +107,34 @@ public class MainActivity extends AppCompatActivity {
 	        });
 
     }
+	/**
+	 * myClass:
+	 * the extension of AsyncTask<String, Void, String> allows for database queries to occur
+	 * in the background. The information retrieved can be fetched by instance.execute().get()
+	 */
+	private class myClass extends AsyncTask<String, Void, String>
+	{
+		String information = "";
+
+		@Override
+		protected String doInBackground(String... foo)
+		{
+			String info;
+
+			try
+			{
+				serverConnection = new ServerConnection(foo[0]);
+				serverConnection.run();
+				info = serverConnection.gMessage;
+				information = info;
+
+				if(Looper.myLooper() == null)
+					Looper.prepare();
+			}catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+			return information;
+		}
+	}
 }

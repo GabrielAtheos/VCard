@@ -15,11 +15,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class QrActivity extends AppCompatActivity {
-    public  final static String GETEMAIL = "coolcatmeow.org.welcomeanimation.GETEMAIL";
+    public  final static String GETINFO = "";
     private String requestedEmail = null;
     private myClass connectionTask = null;
     private ServerConnection serverConnection = null;
     private String USEREMAIL = null;
+    private String text = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,18 @@ public class QrActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         USEREMAIL = getIntent().getStringExtra(MainActivity.USEREMAIL);
+
+        if(USEREMAIL == null) {
+            Intent intentMain = new Intent(QrActivity.this, MainActivity.class);
+            startActivity(intentMain);
+
+            text = "Please log in";
+
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_LONG;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
 
         final EditText getEmail = (EditText) findViewById(R.id.editTextWriteEmail2);
         if(getEmail != null)
@@ -49,7 +62,6 @@ public class QrActivity extends AppCompatActivity {
             goToDisplay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String text = "";
                     String returned = "";
 
                     String toSend = "::getlinked%%";
@@ -65,7 +77,8 @@ public class QrActivity extends AppCompatActivity {
                     }
 
                     if(returned.toLowerCase().equals("notauthorized")) {
-                        //TODO finish this shit
+
+                        text = "User has not authorized you to view their resume";
 
                         Context context = getApplicationContext();
                         int duration = Toast.LENGTH_LONG;
@@ -77,19 +90,17 @@ public class QrActivity extends AppCompatActivity {
                     }else {
 
 
-                        Intent intent1 = new Intent(QrActivity.this, MainActivity.class);
+                        Intent intent1 = new Intent(QrActivity.this, DisplayResumeActivity2.class);
+                        intent1.putExtra(GETINFO, returned);
                         startActivity(intent1);
+
+                        text = "Success!";
+
+                        Context context = getApplicationContext();
+                        int duration = Toast.LENGTH_LONG;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
-
-                    Context context = getApplicationContext();
-                    int duration = Toast.LENGTH_LONG;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
-
-                    Intent intent = new Intent(QrActivity.this, DisplayActivity.class);
-                    intent.putExtra(GETEMAIL, returned);
-
-                    startActivity(intent);
                 }
             });
 
@@ -114,7 +125,8 @@ public class QrActivity extends AppCompatActivity {
                 info = serverConnection.gMessage;
                 information = info;
 
-                Looper.prepare();
+                if(Looper.myLooper() == null)
+                    Looper.prepare();
             } catch (Exception e) {
                 e.printStackTrace();
             }

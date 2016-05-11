@@ -40,7 +40,7 @@
             android:name=".ResumeActivityTwo"
             android:label="@string/title_activity_resume_activity_two"
             android:theme="@style/AppTheme" />
-        <activity android:name=".DisplayResumeActivity" />
+        <activity android:name=".DisplayResumeActivity2" />
         <activity
             android:name=".LogInActivity"
             android:label="@string/title_activity_log_in"
@@ -75,7 +75,7 @@
         <activity
             android:name=".AuthorityActivity"
             android:label="@string/title_activity_authority"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

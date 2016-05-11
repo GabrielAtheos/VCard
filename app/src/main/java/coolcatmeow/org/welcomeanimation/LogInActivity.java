@@ -130,10 +130,10 @@ public class LogInActivity extends AppCompatActivity {
 
                     if(verification != null) {
                         if (verification.toLowerCase().equals("success")) {
+                            String resumeInfo;
                             intent1.putExtra(user_email, tempEmail);
                             text = "Login successful";
                             startActivity(intent1);
-
                         } else if (verification.toLowerCase().equals("wrongpassword")) {
                             text = "Incorrect password";
                             System.out.println(text);

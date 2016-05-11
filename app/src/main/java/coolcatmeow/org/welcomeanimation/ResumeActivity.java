@@ -29,7 +29,7 @@ public class ResumeActivity extends AppCompatActivity {
     private ServerConnection serverConnection = null;
     //private static String loginEmail = LogInActivity.USEREMAIL;
     private static String loginEmail = null;
-//TODO: When signing in from multiple accounts, you get the wrong person's resume
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
