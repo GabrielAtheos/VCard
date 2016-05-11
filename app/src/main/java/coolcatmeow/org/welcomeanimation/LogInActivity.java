@@ -97,6 +97,8 @@ public class LogInActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
 
+                    intent.putExtra(user_email, tempEmail);
+
                     startActivity(intent);
                 }
             });

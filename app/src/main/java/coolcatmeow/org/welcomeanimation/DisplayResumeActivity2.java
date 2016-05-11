@@ -11,6 +11,9 @@ public class DisplayResumeActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_resume);
 
+
+        System.out.println("INFO!!!!!!!!!!!!! INFO INFO INFO INFO INFO "+ getIntent().getStringExtra(MainActivity.USEREMAIL));
+
         String rawInfo = getIntent().getStringExtra(QrActivity.GETINFO);
         String[] info = rawInfo.split(";");
 
